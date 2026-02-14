@@ -21,7 +21,7 @@ npm install
 
 ### 2. Configure Database Connection
 
-Create a `.env` file in this directory (or set environment variable):
+Create a `.env` file in this directory. Prisma v7 reads `DATABASE_URL` from `prisma.config.ts`, which loads `.env`:
 
 ```bash
 cp .env.example .env
@@ -152,7 +152,7 @@ const match = await prisma.match.create({
 ## Migration Workflow
 
 ### Development
-1. Modify `prisma/schema.prisma`
+1. Modify `prisma/schema.prisma` (connection URL is configured in `prisma.config.ts`)
 2. Run `npm run db:migrate:dev --name <description>`
 3. Prisma creates migration file and applies it
 4. Commit both schema and migration files
